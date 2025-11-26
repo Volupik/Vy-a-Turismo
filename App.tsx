@@ -269,27 +269,32 @@ const App: React.FC = () => {
           </div>
 
           <div className="bg-white shadow-xl rounded-2xl p-8 md:p-12 border border-gray-100">
-            <form className="space-y-6">
+            <form action="https://formsubmit.co/YOUR_EMAIL_HERE" method="POST" className="space-y-6">
+              {/* FormSubmit Configuration */}
+              <input type="hidden" name="_subject" value="Nueva consulta desde Vy'a Turismo" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_template" value="table" />
+
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Nombre del Docente / Director</label>
-                  <input type="text" id="name" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent outline-none transition-all" placeholder="Tu nombre" />
+                  <input type="text" id="name" name="Nombre" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent outline-none transition-all" placeholder="Tu nombre" required />
                 </div>
                 <div>
                   <label htmlFor="school" className="block text-sm font-medium text-gray-700 mb-1">Institución Educativa</label>
-                  <input type="text" id="school" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent outline-none transition-all" placeholder="Nombre del colegio" />
+                  <input type="text" id="school" name="Institución" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent outline-none transition-all" placeholder="Nombre del colegio" required />
                 </div>
               </div>
-              
+
               <div>
                 <label htmlFor="whatsapp" className="block text-sm font-medium text-gray-700 mb-1">Whatsapp</label>
-                <input type="tel" id="whatsapp" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent outline-none transition-all" placeholder="+595 9..." />
+                <input type="tel" id="whatsapp" name="WhatsApp" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent outline-none transition-all" placeholder="+595 9..." required />
               </div>
 
               <div>
                 <label htmlFor="interest" className="block text-sm font-medium text-gray-700 mb-1">Interés Principal</label>
-                <select id="interest" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent outline-none transition-all bg-white">
-                  <option>Seleccionar una opción...</option>
+                <select id="interest" name="Interés_Principal" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent outline-none transition-all bg-white" required>
+                  <option value="">Seleccionar una opción...</option>
                   <option>Salida Histórica</option>
                   <option>Salida Científica / Naturaleza</option>
                   <option>Viaje de fin de curso con contenido</option>
@@ -299,12 +304,12 @@ const App: React.FC = () => {
 
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Mensaje</label>
-                <textarea id="message" rows={4} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent outline-none transition-all" placeholder="Cuéntanos sobre el grupo, la edad de los alumnos y qué objetivos pedagógicos buscas..."></textarea>
+                <textarea id="message" name="Mensaje" rows={4} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent outline-none transition-all" placeholder="Cuéntanos sobre el grupo, la edad de los alumnos y qué objetivos pedagógicos buscas..." required></textarea>
               </div>
 
-              <Button className="w-full text-lg py-4 bg-brand-green hover:bg-green-600">
+              <button type="submit" className="w-full text-lg py-4 bg-brand-green hover:bg-green-600 text-white font-medium rounded-lg transition-colors duration-200">
                 Enviar Consulta
-              </Button>
+              </button>
             </form>
           </div>
         </div>
